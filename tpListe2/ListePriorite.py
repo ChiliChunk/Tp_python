@@ -102,3 +102,6 @@ class ListePriorite:
         """Supprime la valeur a l'indice precisé"""
         self.mainList.pop(index)
 
+    def __delitem__(self, key):
+        self.mainList.pop(key)
+
