@@ -39,9 +39,11 @@ class ListePriorite:
 
         if not added:
             self.mainList.append(toAdd)
+
     def __iadd__(self, tuple):
         """Same as add"""
         self.add(tuple[0] , tuple[1])
+        return self
 
     def __update_max_and_min(self, prio):
         """permet de mettre a jour les variable min et max"""
