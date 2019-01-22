@@ -31,7 +31,7 @@ class ListePriorite:
         self.__update_max_and_min(prio)
         toAdd = (prio,obj)
         added = False
-        for index in range(0,len(self.mainList)):
+        for index in range(0, len(self.mainList)):
             if not added: # :/
                 if self.mainList[index] > toAdd:
                     added = True
@@ -42,7 +42,7 @@ class ListePriorite:
 
     def __iadd__(self, tuple):
         """Same as add"""
-        self.add(tuple[0] , tuple[1])
+        self.add(tuple[0], tuple[1])
         return self
 
     def __update_max_and_min(self, prio):
