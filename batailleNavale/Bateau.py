@@ -13,21 +13,17 @@ class Bateau:
 
     def est_touche(self, lig , col):
         if self.status == 3:
-            return 3 # si deja coulé return 3 (on pourrait mettre 0 pour dire qu'on ne peut pas retouché un bateau entièrement coulé?)
+            return 3
         for elmnt in self.elements:
             if elmnt.col == col and elmnt.lig == lig and not elmnt.estTouche : # le coup touche sur un element non deja touche
                 self.nbTouche += 1
-                if self.est_coule: #si coulé => maj le status et return 3
+                if self.est_coule:
                     self.status = 3
                     return 3
-
-                if self.status == 0: # si pas coulé et jamais touché avant => maj status et return 2
-                    self.status = 2
-                    return self.status
-
-                if self.status == 2: # si pas coulé et deja touché avant => maj status et return 1
-                    self.status = 1
-                    return self.status
+                else:
+                    return 2
+            if elmnt.col == col and elmnt.lig == lig and elmnt.estTouche:  # le coup touche sur un element non deja touche
+                return 1
 
         return 0
 
