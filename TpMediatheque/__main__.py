@@ -2,4 +2,9 @@ from TpMediatheque.Mediatheque import Mediatheque
 from TpMediatheque.Livre import Livre
 
 mediat = Mediatheque()
-monLivre = Livre("editeur" , "2018")
+mediat.listDocument = Mediatheque.restore('mediatheque.dat')
+...
+...
+if mediat.listDocument != Mediatheque.restore('mediateque.dat'):
+    mediat.sauve('mediatheque.dat')
+

@@ -1,3 +1,5 @@
+import pickle
+
 class Mediatheque:
 
     def __init__(self):
@@ -15,3 +17,15 @@ class Mediatheque:
 
     def remove(self,key):
         self.listDocument.pop(key)
+
+    def each(self):
+        for document in self.listDocument:
+            yield document
+
+    def sauve(self ,urlFic):
+        with open(urlFic, 'wb') as f:
+            pickle.dump(self.listDocument,f)
+
+    def restore(self,urlFic):
+        with open(urlFic, 'rb') as f:
+            self.listDocument = pickle.load(f)
