@@ -1,30 +1,26 @@
 class Entry:
     def __init__(self ,title):
         self.title = title
-        self.defPage = []
-        self.normalPage = []
-        self.subEntry = []
+        self.defPage = set()
+        self.normalPage = set()
+        self.subEntry = set()
 
     def addPageDef(self,number):
-        if number not in self.defPage:
-            self.defPage.append(number)
-            self.defPage.sort()
-    
+        self.defPage.add(number)
+
     def addNormalPage(self,number):
-        if number not in self.normalPage:
-            self.normalPage.append(number)
-            self.normalPage.sort()
+        self.normalPage.add(number)
 
     def addSubEntry(self,entry):
-        self.subEntry.append(entry)
+        self.subEntry.add(entry)
 
 
     def __str__(self):
         result = ""+self.title+" : "
-        for page in self.defPage:
+        for page in sorted(list(self.defPage)):
             result += "*"+str(page)+"* "
 
-        for page in self.normalPage:
+        for page in sorted(list(self.normalPage)):
             result += str(page) +' '
 
         for entry in self.subEntry:
